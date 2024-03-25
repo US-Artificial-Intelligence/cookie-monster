@@ -19,6 +19,6 @@ python3 -m pip install -r requirements.txt
 
 `nohup ./run.sh &`
 
-- Connect ngrok
+- Connect ngrok (and use nohup)
 
-`ngrok http --domain=cookie-monster.ngrok.io 7999`
+`nohup ngrok http --domain=cookie-monster.ngrok.io 7999 &`
