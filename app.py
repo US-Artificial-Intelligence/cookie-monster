@@ -8,6 +8,8 @@ import random
 app = Flask(__name__)
 CORS(app)  # Enable CORS on all routes
 
+RECORD_FOLDER = "records"
+
 @app.route('/accept', methods=['POST'])
 def accept_cookies():
     # Get the current timestamp
@@ -28,7 +30,7 @@ def accept_cookies():
     }
     
     # Create a new JSON file to store the request information
-    with open(filename, 'w') as file:
+    with open(os.path.join(RECORD_FOLDER, filename), 'w') as file:
         json.dump(request_info, file)
     
     return json.dumps({'accepted': True}), 200
